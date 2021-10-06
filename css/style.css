@@ -1,0 +1,126 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ 
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    overflow-x: hidden;
+    align-items: center;
+    flex-direction: column;
+    font-family: montserrat;
+    background-color: rgb(10, 0, 10);
+}
+
+h1, h2 {
+    font-size: 100px;
+    margin: 0 20px 0 20px;
+    color: rgb(81, 185, 72);
+}
+
+table {
+    max-width: 80%;
+    margin: 10px 0 20px 0;
+    border-spacing: 15px 20px;
+}
+
+td {
+    max-width: 400px;
+    vertical-align: middle;
+    padding: 0 10px 3px 10px;
+    overflow-wrap: break-word;
+    border-bottom: 1px solid rgb(81, 185, 72);
+}
+
+button {
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    font-family: montserrat;
+    background-color: transparent;
+}
+
+input, textarea {
+    padding: 5px;
+    outline: none;
+    max-width: 90%;
+    color: white;
+    font-size: 30px;
+    margin: 10PX 5px 30px 0;
+    background-color: transparent;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid rgb(81, 185, 72);
+}
+
+p {
+    margin-top: 15px;
+}
+
+form {
+    top: 50%;
+    left: 50%;
+    display: flex;
+    margin-right: -50%;
+    border-radius: 10%;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    padding: 6px 12px 6px 12px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(10, 0, 10);
+}
+
+textarea {
+    resize: none;
+    width: 650px;
+    height: 130px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#btnMimic {
+    padding: 5px;
+    outline: none;
+    max-width: 90%;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    margin: 10PX 5px 30px 0;
+    background-color: transparent;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid rgb(81, 185, 72);
+}
+
+#addUpdateWindow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+#exitBtnImage {
+    top: 10px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    position: fixed;
+}
+
+.smallImages {
+    width: 15px;
+    height: 15px;
+}

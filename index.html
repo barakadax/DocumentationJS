@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=utf-8 />
+        <title>Documentation</title>
+        <link rel="icon" href="img/icon.png">
+        <link href="css/style.css" rel="stylesheet">
+        <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 width=device-width" />
+    </head>
+    <body>
+        <div id="addUpdateWindow">
+            <button onclick="changeAddEditWindowVisibility()">
+                <img id="exitBtnImage" src="img/exit.png" alt="highlightThisIsAButtonTriangle"/>
+            </button>
+            <form action="#">
+                <h2>Add - update content</h2>
+                <label>Search references: <input dir="auto" type="text" id="SearchReferencesInput"></label>
+                <label>Subject: <input dir="auto" type="text" id="SubjectInput"></label>
+                <label>Description: </label>
+                <textarea dir="auto" spellcheck="false" id="descriptionInputText"></textarea>
+                <input type="button" value="SUBMIT" onclick="addNewContent()">
+            </form>
+        </div>
+        <h1>Documentation</h1>
+        <div>
+            <input type="button" value="ADD" onclick="changeAddEditWindowVisibility()">
+            <input id="searchedText" dir="auto" type="text" spellcheck="false" oninput="showSearchedVariables()">
+            <label for="getFile" id="btnMimic">IMPORT</label>
+            <input type="file" id="getFile" onchange="importJSON()"> <!--Hidden by css due to ugly w3c web design, btn is the label now-->
+            <input type="button" value="EXPORT" onclick="exportJSON()">
+        </div>
+        <table>
+        </table>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/" target="_blank">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+            </a>
+        </p>
+        <script src="js/jsonExportCommandHandler.js"></script>
+        <script src="js/jsonImportCommandHandler.js"></script>
+        <script src="js/showDescriptionOfContent.js"></script>
+        <script src="js/updateContent.js"></script>
+        <script src="js/deleteContent.js"></script>
+        <script src="js/addContent.js"></script>
+        <script src="js/textSearch.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
