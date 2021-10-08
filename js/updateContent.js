@@ -15,8 +15,10 @@ class updateContent{
         this.#nameInput = document.getElementById("SearchReferencesInput");
         this.#typeInput = document.getElementById("SubjectInput");
         this.#descriptionInput = document.getElementById("descriptionInputText");
-        this.#replaceValuesJSFriendly = [['\'', ''], ['\"', ''], ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>']];
-        this.#replaceValuesHTMLFriendly = [['\'', ''], ['\"', ''], ['&lt;', '<'], ['&gt;', '>'], ['<br>', '\n']];
+        this.#replaceValuesJSFriendly = [['\'', ''], ['\"', ''], ['\n', '<br>'], ['<', '&lt;'], ['>', '&gt;'],
+        ['&lt;i&gt;', '<i>'], ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>']];
+        this.#replaceValuesHTMLFriendly = [['\'', ''], ['\"', ''], ['&lt;', '<'], ['&gt;', '>'],
+        ['<br>', '\n'], ['<i>', '#i#'], ['</i>', '#/i#'], ['<b>', '#b#'], ['</b>', '#/b#'], ['<u>', '#u#'], ['</u>', '#/u#']];
     }
 
     execute(subject) {

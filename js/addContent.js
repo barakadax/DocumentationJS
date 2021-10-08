@@ -23,7 +23,9 @@ class addContent{
         this.#descriptionInput = document.getElementById("descriptionInputText");
         this.#editImage = "<img class=\"smallImages\" src=\"img/edit.png\" alt=\"edit\">";
         this.#deleteImage = "<img class=\"smallImages\" src=\"img/delete.png\" alt=\"delete\">";
-        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>']];
+        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['<i>', ''],  ['</i>', ''], ['<b>', ''], ['</b>', ''], ['<u>', ''],
+        ['</u>', ''], ['&lt;i&gt;', ''], ['&lt;/i&gt;', ''], ['&lt;b&gt;', ''], ['&lt;/b&gt;', ''], ['&lt;u&gt;', ''], ['&lt;/u&gt;', ''],
+        ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>'], ['#i#', '<i>'], ['#/i#', '</i>'], ['#b#', '<b>'], ['#/b#', '</b>'], ['#u#', '<u>'], ['#/u#', '</u>']];
         this.#triangleImage = "<img class=\"smallImages\" src=\"img/triangle.png\" alt=\"highlightThisIsAButtonTriangle\"/>";
     }
 

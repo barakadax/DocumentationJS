@@ -28,6 +28,10 @@ h1, h2 {
     color: rgb(81, 185, 72);
 }
 
+h2 {
+    animation: textColor 4s ease infinite;
+}
+
 table {
     max-width: 80%;
     margin: 10px 0 20px 0;
@@ -57,38 +61,24 @@ input, textarea {
     max-width: 90%;
     color: white;
     font-size: 30px;
-    margin: 10PX 5px 30px 0;
+    margin: 10px 5px 30px 0;
     background-color: transparent;
     border-radius: 20px 20px 20px 20px;
     border: 2px solid rgb(81, 185, 72);
+}
+
+input[type="file"] {
+    display: none;
 }
 
 p {
     margin-top: 15px;
 }
 
-form {
-    top: 50%;
-    left: 50%;
-    display: flex;
-    margin-right: -50%;
-    border-radius: 10%;
-    position: absolute;
-    align-items: center;
-    flex-direction: column;
-    padding: 6px 12px 6px 12px;
-    transform: translate(-50%, -50%);
-    background-color: rgb(10, 0, 10);
-}
-
 textarea {
     resize: none;
     width: 650px;
     height: 130px;
-}
-
-input[type="file"] {
-    display: none;
 }
 
 #btnMimic {
@@ -104,13 +94,6 @@ input[type="file"] {
     border: 2px solid rgb(81, 185, 72);
 }
 
-#addUpdateWindow {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(128, 128, 128, 0.5);
-}
-
 #exitBtnImage {
     top: 10px;
     right: 10px;
@@ -120,7 +103,62 @@ input[type="file"] {
     position: fixed;
 }
 
+#guideWindow {
+    font-size: 30px;
+    color: rgb(81, 185, 72);
+}
+
+#guideWindowExtra {
+    line-height: 35px;
+    max-width: 1000px;
+    align-items: baseline;
+    padding: 0 20px 0 20px;
+}
+
+.middleOfTheScreenWindow {
+    top: 50%;
+    left: 50%;
+    display: flex;
+    margin-right: -50%;
+    border-radius: 10%;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid white;
+    padding: 6px 12px 6px 12px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(10, 0, 10);
+}
+
+.hideOrShowWindow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
 .smallImages {
     width: 15px;
     height: 15px;
+}
+
+.roundBtn {
+    border-radius: 50%;
+    padding: 0 10px 0 10px;
+    margin: 10px 5px 10px 0;
+}
+
+@keyframes textColor {
+    0% {
+        color: rgb(81, 185, 72);
+        background-position: 50% 0%;
+    }
+    50% {
+        color: white;
+        background-position: 0% 75%;
+    }
+    100% {
+        color: rgb(81, 185, 72);
+        background-position: 50% 0%;
+    }
 }

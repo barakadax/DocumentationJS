@@ -21,8 +21,13 @@ const ENUM = {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ABOVE NO TOUCH, VARIABLE & ENUM SETUP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 addUpdateWindow.style.display = 'none';
+guideWindow.style.display = 'none';
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ABOVE NO TOUCH, HIDE WINDOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+function guideView() {
+    guideWindow.style.display = guideWindow.style.display === '' ? 'none' : '';
+}
 
 function showSearchedVariables() {
     searchTextObj.execute();

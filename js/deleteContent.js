@@ -8,7 +8,8 @@ class deleteContent{
     constructor() {
         this.#findAllMatches = 'g';
         this.#tableRows = document.getElementsByTagName("tr");
-        this.#replaceValues = [['\'', ''], ['\"', ''], ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>']];
+        this.#replaceValues = [['\'', ''], ['\"', ''], ['\n', '<br>'], ['<', '&lt;'], ['>', '&gt;'], ['&lt;i&gt;', '<i>'],
+        ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>']];
     }
 
     execute(subject) {

@@ -8,11 +8,11 @@
         <meta name="viewport" content="initial-scale=1.0 minimum-scale=1.0 width=device-width" />
     </head>
     <body>
-        <div id="addUpdateWindow">
+        <div id="addUpdateWindow" class="hideOrShowWindow">
             <button onclick="changeAddEditWindowVisibility()">
                 <img id="exitBtnImage" src="img/exit.png" alt="highlightThisIsAButtonTriangle"/>
             </button>
-            <form action="#">
+            <form class="middleOfTheScreenWindow" action="#">
                 <h2>Add - update content</h2>
                 <label>Search references: <input dir="auto" type="text" id="SearchReferencesInput"></label>
                 <label>Subject: <input dir="auto" type="text" id="SubjectInput"></label>
@@ -21,13 +21,34 @@
                 <input type="button" value="SUBMIT" onclick="addNewContent()">
             </form>
         </div>
+        <div id="guideWindow" class="hideOrShowWindow">
+            <div  class="middleOfTheScreenWindow">
+                <h2>Guide</h2>
+                <div id="guideWindowExtra">
+                    &#9734;) Add: first input words you want to search your subject with.<br>
+                    Second input the subject title, can't make duplicate with the exact same name.<br>
+                    Last input is the description you want to write for your subject.<br>
+                    &#9734;) Search bar: type as close for the subject as you want, will search with subject text & search references you typed for this subject<br>
+                    &#9734;) Import: input JSON file with the data you want to add.<br>
+                    &#9734;) Export: download to your pc whole table with data for easy sending to other & easy importing.<br>
+                    &#9734;) <img class="smallImages" src="img/edit.png" alt="edit">: load subject content into add window for editing.<br>
+                    &#9734;) <img class="smallImages" src="img/delete.png" alt="delete">: deletes subject row & description row.<br>
+                    &#9734;) <i>For italic use:</i> #i# & #/i# instead of: &lt;i&gt; & &lt;/i&gt;<br>
+                    &#9734;) <b>For bold use:</b> #b# & #/b# instead of: &lt;b&gt; & &lt;/b&gt;<br>
+                    &#9734;) <u>For underline use</u>: #u# & #/u# instead of: &lt;u&gt; & &lt;/u&gt;<br>
+                    &#9734;) Input that will be deleted on entry: ', ", &lt;i&gt;, &lt;/i&gt;, &lt;b&gt;, &lt;/b&gt;, &lt;u&gt;, &lt;/u&gt;<br>
+                </div>
+                <input type="button" onclick="guideView()" value="&#10004;" class="roundBtn">
+            </div>
+        </div>
         <h1>Documentation</h1>
         <div>
             <input type="button" value="ADD" onclick="changeAddEditWindowVisibility()">
-            <input id="searchedText" dir="auto" type="text" spellcheck="false" oninput="showSearchedVariables()">
+            <input id="searchedText" dir="auto" type="text" spellcheck="false" placeholder="Search..." oninput="showSearchedVariables()">
             <label for="getFile" id="btnMimic">IMPORT</label>
             <input type="file" id="getFile" onchange="importJSON()"> <!--Hidden by css due to ugly w3c web design, btn is the label now-->
             <input type="button" value="EXPORT" onclick="exportJSON()">
+            <input type="button" value="?" class="roundBtn" onclick="guideView()">
         </div>
         <table>
         </table>
