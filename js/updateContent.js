@@ -2,19 +2,13 @@
 
 class updateContent{
     #tableRows;
-    #nameInput;
-    #typeInput;
     #findAllMatches;
-    #descriptionInput;
     #replaceValuesJSFriendly;
     #replaceValuesHTMLFriendly;
 
     constructor() {
         this.#findAllMatches = 'g';
         this.#tableRows = document.getElementsByTagName("tr");
-        this.#nameInput = document.getElementById("SearchReferencesInput");
-        this.#typeInput = document.getElementById("SubjectInput");
-        this.#descriptionInput = document.getElementById("descriptionInputText");
         this.#replaceValuesJSFriendly = [['\'', ''], ['\"', ''], ['\n', '<br>'], ['<', '&lt;'], ['>', '&gt;'],
         ['&lt;i&gt;', '<i>'], ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>']];
         this.#replaceValuesHTMLFriendly = [['\'', ''], ['\"', ''], ['&lt;', '<'], ['&gt;', '>'],
@@ -56,14 +50,14 @@ class updateContent{
     }
 
     #insertDataIntoInputFields(rowIndex) {
-        this.#nameInput.value = this.#editTextForUse(this.#tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
-        this.#typeInput.value = this.#editTextForUse(this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
-        this.#descriptionInput.value = this.#editTextForUse(this.#tableRows[rowIndex + ENUM.nextRow].children[ENUM.SearchReferencesCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
+        SearchReferencesInput.value = this.#editTextForUse(this.#tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
+        SubjectInput.value = this.#editTextForUse(this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
+        descriptionInputText.value = this.#editTextForUse(this.#tableRows[rowIndex + ENUM.nextRow].children[ENUM.SearchReferencesCellIndex].innerHTML, this.#replaceValuesHTMLFriendly);
     }
 
     #clear() {
-        this.#nameInput.value = '';
-        this.#typeInput.value = '';
-        this.#descriptionInput.value = '';
+        SearchReferencesInput.value = '';
+        SubjectInput.value = '';
+        descriptionInputText.value = '';
     }
 }

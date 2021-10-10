@@ -5,12 +5,9 @@ class addContent{
     #tableRows;
     #editImage;
     #deleteImage;
-    #SubjectInput;
     #triangleImage;
     #findAllMatches;
-    #descriptionInput;
     #descriptionBtnText;
-    #SearchReferencesInput;
     #regexReplaceValuesArray;
 
     constructor() {
@@ -18,9 +15,6 @@ class addContent{
         this.#descriptionBtnText = " Press for description ";
         this.#tableRows = document.getElementsByTagName("tr");
         this.#table = document.getElementsByTagName("table")[0];
-        this.#SearchReferencesInput = document.getElementById("SubjectInput");
-        this.#SubjectInput = document.getElementById("SearchReferencesInput");
-        this.#descriptionInput = document.getElementById("descriptionInputText");
         this.#editImage = "<img class=\"smallImages\" src=\"img/edit.png\" alt=\"edit\">";
         this.#deleteImage = "<img class=\"smallImages\" src=\"img/delete.png\" alt=\"delete\">";
         this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['<i>', ''],  ['</i>', ''], ['<b>', ''], ['</b>', ''], ['<u>', ''],
@@ -44,16 +38,16 @@ class addContent{
     }
 
     #checkIfCanBeAddOrEdited() {
-        let isSubjectEmpty = this.#SearchReferencesInput.value == '';
+        let isSubjectEmpty = SubjectInput.value == '';
         if(isSubjectEmpty)
             alert("You must at least have subject to be able submitting!");
         return isSubjectEmpty;
     }
 
     #changeAllInputToHtmlFriendly() {
-        this.#SubjectInput.value = this.#editTextForJSUse(this.#SubjectInput.value);
-        this.#SearchReferencesInput.value = this.#editTextForJSUse(this.#SearchReferencesInput.value);
-        this.#descriptionInput.value = this.#editTextForJSUse(this.#descriptionInput.value);
+        SearchReferencesInput.value = this.#editTextForJSUse(SearchReferencesInput.value);
+        SubjectInput.value = this.#editTextForJSUse(SubjectInput.value);
+        descriptionInputText.value = this.#editTextForJSUse(descriptionInputText.value);
     }
 
     #editTextForJSUse(text) {
@@ -77,24 +71,24 @@ class addContent{
     #addOrEditValidator(rowIndex) {
         return this.#tableRows[rowIndex].id == '' &&
         this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML.trim().toLowerCase() ==
-        this.#SearchReferencesInput.value.trim().toLowerCase();
+        SubjectInput.value.trim().toLowerCase();
     }
 
     #editOnOccurrence(rowIndex) {
-        this.#tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML = this.#SubjectInput.value.trim();
-        this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML = this.#SearchReferencesInput.value.trim();
-        this.#tableRows[rowIndex + ENUM.nextRow].children[ENUM.SearchReferencesCellIndex].innerHTML = this.#descriptionInput.value.trim();
-        this.#tableRows[rowIndex + ENUM.nextRow].id = this.#SearchReferencesInput.value.trim();
+        this.#tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML = SearchReferencesInput.value.trim();
+        this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML = SubjectInput.value.trim();
+        this.#tableRows[rowIndex + ENUM.nextRow].children[ENUM.SearchReferencesCellIndex].innerHTML = descriptionInputText.value.trim();
+        this.#tableRows[rowIndex + ENUM.nextRow].id = SubjectInput.value.trim();
         return this.#clear();
     }
 
     #createSearchRow() {
         let searchRow = document.createElement('tr');
-        searchRow.appendChild(this.#createNewCellWithData(this.#SubjectInput.value));
-        searchRow.appendChild(this.#createNewCellWithData(this.#SearchReferencesInput.value));
-        searchRow.appendChild(this.#createBtnCell(this.#triangleImage + this.#descriptionBtnText + this.#triangleImage, "showDescription(\'" + this.#SearchReferencesInput.value + "\')"));
-        searchRow.appendChild(this.#createBtnCell(this.#editImage, "editThis(\'" + this.#SearchReferencesInput.value + "\')"));
-        searchRow.appendChild(this.#createBtnCell(this.#deleteImage, "deleteThis(\'" + this.#SearchReferencesInput.value + "\')"));
+        searchRow.appendChild(this.#createNewCellWithData(SearchReferencesInput.value));
+        searchRow.appendChild(this.#createNewCellWithData(SubjectInput.value));
+        searchRow.appendChild(this.#createBtnCell(this.#triangleImage + this.#descriptionBtnText + this.#triangleImage, "showDescription(\'" + SubjectInput.value + "\')"));
+        searchRow.appendChild(this.#createBtnCell(this.#editImage, "editThis(\'" + SubjectInput.value + "\')"));
+        searchRow.appendChild(this.#createBtnCell(this.#deleteImage, "deleteThis(\'" + SubjectInput.value + "\')"));
         this.#table.appendChild(searchRow);
     }
 
@@ -128,20 +122,20 @@ class addContent{
         let descriptionRow = document.createElement('tr');
         descriptionRow.setAttribute("dir", "auto");
         descriptionRow.style.display = 'none';
-        descriptionRow.id = this.#SearchReferencesInput.value;
+        descriptionRow.id = SubjectInput.value;
         return descriptionRow;
     }
 
     #createDescriptionContent() {
-        let rowContent = this.#createNewCellWithData(this.#descriptionInput.value);
+        let rowContent = this.#createNewCellWithData(descriptionInputText.value);
         rowContent.colSpan = ENUM.descriptionRowSpanLength;
         return rowContent;
     }
 
     #clear() {
-        this.#SubjectInput.value = '';
-        this.#SearchReferencesInput.value = '';
-        this.#descriptionInput.value = '';
+        SearchReferencesInput.value = '';
+        SubjectInput.value = '';
+        descriptionInputText.value = '';
         return true;
     }
 }
