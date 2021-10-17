@@ -59,8 +59,8 @@ function exportJSON() {
 
 function importJSON() { 
     let file = document.getElementById('getFile');
-    if (file.files[0])
-        reader.readAsBinaryString(file.files[0]);
+    if (file.files[0].name.includes(".json") && file.files[0])
+        reader.readAsText(file.files[0]);
     file.value = "";
 }
 

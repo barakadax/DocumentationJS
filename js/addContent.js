@@ -17,9 +17,20 @@ class addContent{
         this.#table = document.getElementsByTagName("table")[0];
         this.#editImage = "<img class=\"smallImages\" src=\"img/edit.png\" alt=\"edit\">";
         this.#deleteImage = "<img class=\"smallImages\" src=\"img/delete.png\" alt=\"delete\">";
-        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['<i>', ''],  ['</i>', ''], ['<b>', ''], ['</b>', ''], ['<u>', ''],
-        ['</u>', ''], ['&lt;i&gt;', ''], ['&lt;/i&gt;', ''], ['&lt;b&gt;', ''], ['&lt;/b&gt;', ''], ['&lt;u&gt;', ''], ['&lt;/u&gt;', ''],
-        ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>'], ['#i#', '<i>'], ['#/i#', '</i>'], ['#b#', '<b>'], ['#/b#', '</b>'], ['#u#', '<u>'], ['#/u#', '</u>']];
+        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['[\\\\]', ''], ['\n', '<br>'], ['&', '&amp;'],
+        ['<i>', ''], ['</i>', ''], ['<b>', ''], ['</b>', ''], ['<u>', ''], ['</u>', ''],
+        ['<I>', ''], ['</I>', ''], ['<B>', ''], ['</B>', ''], ['<U>', ''], ['</U>', ''],
+        ['<ul>', ''], ['</ul>', ''], ['<li>', ''], ['</li>', ''], ['<ol>', ''], ['</ol>', ''],
+        ['<UL>', ''], ['</UL>', ''], ['<LI>', ''], ['</LI>', ''], ['<OL>', ''], ['</OL>', ''],
+        ['&lt;i&gt;', ''], ['&lt;/i&gt;', ''], ['&lt;b&gt;', ''], ['&lt;/b&gt;', ''], ['&lt;u&gt;', ''], ['&lt;/u&gt;', ''],
+        ['&lt;I&gt;', ''], ['&lt;/I&gt;', ''], ['&lt;B&gt;', ''], ['&lt;/B&gt;', ''], ['&lt;U&gt;', ''], ['&lt;/U&gt;', ''],
+        ['&lt;ul&gt;', ''], ['&lt;/ul&gt;', ''], ['&lt;li&gt;', ''], ['&lt;/li&gt;', ''], ['&lt;ol&gt;', ''], ['&lt;/ol&gt;', ''],
+        ['&lt;UL&gt;', ''], ['&lt;/UL&gt;', ''], ['&lt;LI&gt;', ''], ['&lt;/LI&gt;', ''], ['&lt;OL&gt;', ''], ['&lt;/OL&gt;', ''],
+        ['<', '&lt;'], ['>', '&gt;'],
+        ['#i#', '<i>'], ['#/i#', '</i>'], ['#b#', '<b>'], ['#/b#', '</b>'], ['#u#', '<u>'], ['#/u#', '</u>'],
+        ['#I#', '<I>'], ['#/I#', '</I>'], ['#B#', '<B>'], ['#/B#', '</B>'], ['#U#', '<U>'], ['#/U#', '</U>'],
+        ['#ul#', '<ul>'], ['#/ul#', '</ul>'], ['#li#', '<li>'], ['#/li#', '</li>'], ['#ol#', '<ol>'], ['#/ol#', '</ol>'],
+        ['#UL#', '<UL>'], ['#/UL#', '</UL>'], ['#LI#', '<LI>'], ['#/LI#', '</LI>'], ['#OL#', '<OL>'], ['#/OL#', '</OL>']];
         this.#triangleImage = "<img class=\"smallImages\" src=\"img/triangle.png\" alt=\"highlightThisIsAButtonTriangle\"/>";
     }
 

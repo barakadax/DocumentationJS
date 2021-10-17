@@ -8,11 +8,10 @@ class showDescriptionOfSelectedContentObj {
     }
 
     execute(DescriptionRowId) {
-        this.#checkRowToShowDescription(DescriptionRowId);
+        this.#checkRowToShowDescription(DescriptionRowId.trim().toLowerCase());
     }
 
     #checkRowToShowDescription(DescriptionRowId) {
-        DescriptionRowId = DescriptionRowId.trim().toLowerCase();
         for (let rowIndex = 0; rowIndex < this.#tableRows.length; rowIndex -= -1)
             if (DescriptionRowId == this.#tableRows[rowIndex].id.trim().toLowerCase())
                 this.#changeVisibleState(rowIndex);

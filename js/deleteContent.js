@@ -8,8 +8,11 @@ class deleteContent{
     constructor() {
         this.#findAllMatches = 'g';
         this.#tableRows = document.getElementsByTagName("tr");
-        this.#replaceValues = [['\'', ''], ['\"', ''], ['\n', '<br>'], ['<', '&lt;'], ['>', '&gt;'], ['&lt;i&gt;', '<i>'],
-        ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>']];
+        this.#replaceValues = [['\'', ''], ['\"', ''], ['\n', '<br>'],
+        ['#i#', '<i>'], ['#/i#', '</i>'], ['#b#', '<b>'], ['#/b#', '</b>'], ['#u#', '<u>'], ['#/u#', '</u>'],
+        ['#I#', '<I>'], ['#/I#', '</I>'], ['#B#', '<B>'], ['#/B#', '</B>'], ['#U#', '<U>'], ['#/U#', '</U>'],
+        ['#ul#', '<ul>'], ['#/ul#', '</ul>'], ['#li#', '<li>'], ['#/li#', '</li>'], ['#ol#', '<ol>'], ['#/ol#', '</ol>'],
+        ['#UL#', '<UL>'], ['#/UL#', '</UL>'], ['#LI#', '<LI>'], ['#/LI#', '</LI>'], ['#OL#', '<OL>'], ['#/OL#', '</OL>']];
     }
 
     execute(subject) {

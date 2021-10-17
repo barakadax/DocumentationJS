@@ -9,10 +9,16 @@ class updateContent{
     constructor() {
         this.#findAllMatches = 'g';
         this.#tableRows = document.getElementsByTagName("tr");
-        this.#replaceValuesJSFriendly = [['\'', ''], ['\"', ''], ['\n', '<br>'], ['<', '&lt;'], ['>', '&gt;'],
-        ['&lt;i&gt;', '<i>'], ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>']];
-        this.#replaceValuesHTMLFriendly = [['\'', ''], ['\"', ''], ['&lt;', '<'], ['&gt;', '>'],
-        ['<br>', '\n'], ['<i>', '#i#'], ['</i>', '#/i#'], ['<b>', '#b#'], ['</b>', '#/b#'], ['<u>', '#u#'], ['</u>', '#/u#']];
+        this.#replaceValuesJSFriendly = [['\n', '<br>'],
+        ['&lt;i&gt;', '<i>'], ['&lt;/i&gt;', '</i>'], ['&lt;b&gt;', '<b>'], ['&lt;/b&gt;', '</b>'], ['&lt;u&gt;', '<u>'], ['&lt;/u&gt;', '</u>'],
+        ['&lt;I&gt;', '<I>'], ['&lt;/I&gt;', '</I>'], ['&lt;B&gt;', '<B>'], ['&lt;/B&gt;', '</B>'], ['&lt;U&gt;', '<U>'], ['&lt;/U&gt;', '</U>'],
+        ['&lt;ul&gt;', '<ul>'], ['&lt;/ul&gt;', '</ul>'], ['&lt;li&gt;', '<li>'], ['&lt;/li&gt;', '</li>'], ['&lt;ol&gt;', '<ol>'], ['&lt;/ol&gt;', '</ol>'],
+        ['&lt;UL&gt;', '<UL>'], ['&lt;/UL&gt;', '</UL>'], ['&lt;LI&gt;', '<LI>'], ['&lt;/LI&gt;', '</LI>'], ['&lt;OL&gt;', '<OL>'], ['&lt;/OL&gt;', '</OL>']];
+        this.#replaceValuesHTMLFriendly = [['&lt;', '<'], ['&gt;', '>'], ['<br>', '\n'], ['&amp;', '&'],
+        ['<i>', '#i#'], ['</i>', '#/i#'], ['<b>', '#b#'], ['</b>', '#/b#'], ['<u>', '#u#'], ['</u>', '#/u#'],
+        ['<I>', '#I#'], ['</I>', '#/I#'], ['<B>', '#B#'], ['</B>', '#/B#'], ['<U>', '#U#'], ['</U>', '#/U#'],
+        ['<ul>', '#ul#'], ['</ul>', '#/ul#'], ['<li>', '#li#'], ['</li>', '#/li#'], ['<ol>', '#ol#'], ['</ol>', '#/ol#'],
+        ['<UL>', '#UL#'], ['</UL>', '#/UL#'], ['<LI>', '#LI#'], ['</LI>', '#/LI#'], ['<OL>', '#OL#'], ['</OL>', '#/OL#']];
     }
 
     execute(subject) {
