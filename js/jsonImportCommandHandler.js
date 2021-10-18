@@ -31,7 +31,7 @@ class jsonImportCommandHandler {
 
     #createSearchRow(contentArray) {
         let searchRow = document.createElement('tr');
-        searchRow.appendChild(this.#createNewCellWithData(contentArray[ENUM.SearchReferencesCellIndex]));
+        searchRow.appendChild(this.#hideSearchCell(this.#createNewCellWithData(contentArray[ENUM.SearchReferencesCellIndex])));
         searchRow.appendChild(this.#createNewCellWithData(contentArray[ENUM.SubjectCellIndex]));
         searchRow.appendChild(this.#createBtnCell(this.#triangleImage + this.#descriptionBtnText + this.#triangleImage, "showDescription(\'" + contentArray[ENUM.SubjectCellIndex] + "\')"));
         searchRow.appendChild(this.#createBtnCell(this.#editImage, "editThis(\'" + contentArray[ENUM.SubjectCellIndex] + "\')"));
@@ -44,6 +44,11 @@ class jsonImportCommandHandler {
         newCell.setAttribute("dir", "auto");
         newCell.innerHTML = cellContent;
         return newCell;
+    }
+
+    #hideSearchCell(searchCell) {
+        searchCell.style.display = 'none';
+        return searchCell;
     }
 
     #createBtnCell(btnVisualInHtml, btnFunction) {
