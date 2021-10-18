@@ -13,7 +13,7 @@ const ENUM = {
     regexChangeToIndex: 1,
     regexChangeFromIndex: 0,
     descriptionCellIndex: 0,
-    descriptionRowSpanLength: 5,
+    descriptionRowSpanLength: 4,
     SearchReferencesCellIndex: 0,
     descriptionCellIndexFromJson: 2,
 };
