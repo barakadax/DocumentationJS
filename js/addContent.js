@@ -17,7 +17,7 @@ class addContent{
         this.#table = document.getElementsByTagName("table")[0];
         this.#editImage = "<img class=\"smallImages\" src=\"img/edit.png\" alt=\"edit\">";
         this.#deleteImage = "<img class=\"smallImages\" src=\"img/delete.png\" alt=\"delete\">";
-        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['[\\\\]', ''], ['&', '&amp;'],
+        this.#regexReplaceValuesArray = [['\'', ''], ['\"', ''], ['&', '&amp;'],
         ['<i>', ''], ['</i>', ''], ['<b>', ''], ['</b>', ''], ['<u>', ''], ['</u>', ''],
         ['<I>', ''], ['</I>', ''], ['<B>', ''], ['</B>', ''], ['<U>', ''], ['</U>', ''],
         ['<ul>', ''], ['</ul>', ''], ['<li>', ''], ['</li>', ''], ['<ol>', ''], ['</ol>', ''],
