@@ -1,61 +1,68 @@
 'use strict';
 
 class searchObj {
-    #tableRows;
-    #searchedText;
-    #replaceValues;
-    #findAllMatches;
+    tableRows;
+    searchedText;
+    replaceValues;
+    findAllMatches;
 
     constructor() {
-        this.#searchedText = null;
-        this.#findAllMatches = 'g';
-        this.#tableRows = document.getElementsByTagName("tr");
-        this.#replaceValues = [['\'', ''], ['\"', ''], ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>']];
+        this.searchedText = null;
+        this.findAllMatches = 'g';
+        this.tableRows = document.getElementsByTagName("tr");
+        this.replaceValues = [['\'', ''], ['\"', ''], ['<', '&lt;'], ['>', '&gt;'], ['\n', '<br>']];
     }
 
     execute() {
-        this.#updateSearchedText();
-        this.#SearchedContent();
+        this.updateSearchedText();
+        this.SearchedContent();
     }
 
-    #updateSearchedText() {
-        this.#searchedText = document.getElementById("searchedText").value.toLowerCase();
-        this.#searchedText = this.#editTextForJSUse(this.#searchedText);
+    updateSearchedText() {
+        this.searchedText = document.getElementById("searchedText").value.toLowerCase();
+        this.editTextForJSUse();
     }
 
-    #editTextForJSUse(text) {
-        for (let replaceValuesArrayIndex = 0; replaceValuesArrayIndex < this.#replaceValues.length; replaceValuesArrayIndex -= -1)
-            text = this.#regexChangeTextToFitJavascriptOrHTML(text, replaceValuesArrayIndex);
-        return text.trim();
+    editTextForJSUse() {
+        for (let replaceValuesArrayIndex = 0; replaceValuesArrayIndex < this.replaceValues.length; replaceValuesArrayIndex++)
+            this.regexChangeTextToFitJavascriptOrHTML(replaceValuesArrayIndex);
+        this.searchedText = this.searchedText.trim().split(" ").filter(element => {
+            return element !== '';
+        });
     }
 
-    #regexChangeTextToFitJavascriptOrHTML(text, replaceValuesArrayIndex) {
-        let regexExpression = new RegExp(this.#replaceValues[replaceValuesArrayIndex][ENUM.regexChangeFromIndex], this.#findAllMatches);
-        return text.replace(regexExpression, this.#replaceValues[replaceValuesArrayIndex][ENUM.regexChangeToIndex]);
+    regexChangeTextToFitJavascriptOrHTML(replaceValuesArrayIndex) {
+        let regexExpression = new RegExp(this.replaceValues[replaceValuesArrayIndex][ENUM.regexChangeFromIndex], this.findAllMatches);
+        this.searchedText.replace(regexExpression, this.replaceValues[replaceValuesArrayIndex][ENUM.regexChangeToIndex]);
     }
 
-    #SearchedContent() {    
-        for (let rowIndex = 0; rowIndex < this.#tableRows.length; rowIndex -= -1)
-            if (this.#tableRows[rowIndex].id == "")
-                this.#showOrHideSearchedContent(rowIndex);
+    SearchedContent() {    
+        for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex++)
+            if (this.tableRows[rowIndex].id == "")
+                this.showOrHideSearchedContent(rowIndex);
     }
 
-    #showOrHideSearchedContent(rowIndex) {
-        if (this.#isTextInContent(rowIndex))
-            this.#tableRows[rowIndex].style.display = '';
-        else
-            this.#hideIrrelevantResult(rowIndex);
+    showOrHideSearchedContent(rowIndex) {
+        if (this.searchedText.length == 0) {
+            for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex += 2) {
+                this.tableRows[rowIndex].style.display = '';
+            }
+        }
+        this.isTextInContent(rowIndex) ? this.tableRows[rowIndex].style.display = '' : this.hideIrrelevantResult(rowIndex);
     }
 
-    #isTextInContent(rowIndex) {
-        let variableTextToSearchIn = this.#tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML.trim().toLowerCase();
-        let typeTextToSearchIn = this.#tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML.trim().toLowerCase();
-        return variableTextToSearchIn.includes(this.#searchedText) || typeTextToSearchIn.includes(this.#searchedText);
+    isTextInContent(rowIndex) {
+        let variableTextToSearchIn = this.tableRows[rowIndex].children[ENUM.SearchReferencesCellIndex].innerHTML.trim().toLowerCase();
+        let typeTextToSearchIn = this.tableRows[rowIndex].children[ENUM.SubjectCellIndex].innerHTML.trim().toLowerCase();
+        for (let i = 0; i < this.searchedText.length; i++)
+            if (variableTextToSearchIn.includes(this.searchedText[i]) || typeTextToSearchIn.includes(this.searchedText[i]))
+                return true;
+        return false;
     }
 
-    #hideIrrelevantResult(rowIndex) {
-        this.#tableRows[rowIndex].style.display = 'none';
-        if (this.#tableRows[rowIndex + ENUM.nextRow].id != "")
-            this.#tableRows[rowIndex + ENUM.nextRow].style.display = 'none';
+    hideIrrelevantResult(rowIndex) {
+        this.tableRows[rowIndex].style.display = 'none';
+        if (this.tableRows[rowIndex + ENUM.nextRow].id != "")
+            this.tableRows[rowIndex + ENUM.nextRow].style.display = 'none';
     }
 }
