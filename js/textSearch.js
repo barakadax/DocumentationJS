@@ -36,18 +36,21 @@ class searchObj {
         this.searchedText.replace(regexExpression, this.replaceValues[replaceValuesArrayIndex][ENUM.regexChangeToIndex]);
     }
 
-    SearchedContent() {    
-        for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex++)
-            if (this.tableRows[rowIndex].id == "")
-                this.showOrHideSearchedContent(rowIndex);
+    SearchedContent() {
+        if (this.searchedText.length == 0)
+            this.showAll();
+        else
+            for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex++)
+                if (this.tableRows[rowIndex].id == "")
+                    this.showOrHideSearchedContent(rowIndex);
+    }
+
+    showAll() {
+        for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex += 2)
+            this.tableRows[rowIndex].style.display = '';
     }
 
     showOrHideSearchedContent(rowIndex) {
-        if (this.searchedText.length == 0) {
-            for (let rowIndex = 0; rowIndex < this.tableRows.length; rowIndex += 2) {
-                this.tableRows[rowIndex].style.display = '';
-            }
-        }
         this.isTextInContent(rowIndex) ? this.tableRows[rowIndex].style.display = '' : this.hideIrrelevantResult(rowIndex);
     }
 
